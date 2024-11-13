@@ -4,7 +4,7 @@
 
 QtPZPApplication::QtPZPApplication(int& argc, char** argv, int flags /*= ApplicationFlags*/) : QApplication(argc, argv, flags)
 {
-
+	connect(&m_mainWindow, SIGNAL(m_mainWindow.signalPushButton()), this, SLOT(slotPushBut()));
 }
 
 QtPZPApplication::~QtPZPApplication()
@@ -15,4 +15,14 @@ QtPZPApplication::~QtPZPApplication()
 void QtPZPApplication::ShowWindow()
 {
 	m_mainWindow.show();
+}
+
+UIMediator* QtPZPApplication::GetUIMediator()
+{
+	return &m_uiMediator;
+}
+
+void QtPZPApplication::slotPushBut()
+{
+	m_uiMediator.SendEventPushButton();
 }

@@ -11,6 +11,12 @@ public:
 	QtPZPMainWindow(QWidget *parent = nullptr);
 	~QtPZPMainWindow();
 
+signals:
+	void signalPushButton();
+
+private slots:
+	void slotPushButton();
+
 private:
 	Ui::QtMainWindowClass ui;
 };

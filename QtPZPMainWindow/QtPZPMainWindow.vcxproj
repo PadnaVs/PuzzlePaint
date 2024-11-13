@@ -94,11 +94,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="UIMediator.cpp" />
     <ClCompile Include="QtPZPMainWindow.cpp" />
     <ClCompile Include="QtPZPApplication.cpp" />
     <ClCompile Include="Start.cpp" />
     <ClInclude Include="DI.h" />
     <QtMoc Include="QtPZPMainWindow.h" />
+    <ClInclude Include="UIMediator.h" />
     <ClInclude Include="QtPZPApplication.h" />
     <ClInclude Include="Start.h" />
     <ClInclude Include="qtpzpmainwindow_global.h" />

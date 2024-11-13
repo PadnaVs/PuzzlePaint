@@ -2,6 +2,10 @@
 
 int main(int argc, char* argv[])
 {
-	StartQtApp(argc, argv, 6);
+	CreateQtUIApp(argc, argv, 6);
+
+	IQtUIApp* pMediatorUI = GetQtUIMediator();
+
+	ShowMainWindow();
 	return 0;
 }

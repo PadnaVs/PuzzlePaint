@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IQtUIApp.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IQtUIApp.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

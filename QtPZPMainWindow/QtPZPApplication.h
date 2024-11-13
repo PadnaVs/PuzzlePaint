@@ -4,6 +4,7 @@
 #include "DI.h"
 #include "qtpzpmainwindow_global.h"
 #include "QtPZPMainWindow.h"
+#include "UIMediator.h"
 
 class QtPZPApplication :
 	public QApplication
@@ -15,8 +16,13 @@ public:
 	virtual ~QtPZPApplication();
 
 	void ShowWindow();
+	UIMediator* GetUIMediator();
+
+private slots:
+	void slotPushBut();;
 private:
 	QtPZPMainWindow m_mainWindow;
+	UIMediator m_uiMediator;
 };
 
 
