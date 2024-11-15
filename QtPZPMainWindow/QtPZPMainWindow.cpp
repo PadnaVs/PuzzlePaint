@@ -1,19 +1,26 @@
 #include "QtPZPMainWindow.h"
+#include "DI.h"
+#include "QtPZPApplication.h"
 
 QtPZPMainWindow::QtPZPMainWindow(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
 
-	//Почему то не работает
-	connect(ui.pushButton, SIGNAL(ui.pushButton->click()), this, SLOT(slotPushButton()));
+	connect(ui.pushButton, &QPushButton::clicked, this, &QtPZPMainWindow::slotPushButton);
 }
 
 QtPZPMainWindow::~QtPZPMainWindow()
-{}
+{
+
+}
 
 void QtPZPMainWindow::slotPushButton()
 {
-	signalPushButton();
+	QtPZPApplication* pApp = GetPZPQtApplication();
+	if (!pApp)
+		return;
+
+	pApp->GetUIMediator()->DoA();
 }
 

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.11.35327.3
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35325.158
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PuzzlePaintCore", "PuzzlePaintCore\PuzzlePaintCore.vcxproj", "{FBCE10E1-47BA-4C7E-B643-A9D946A849A3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "main", "main\main.vcxproj", "{87953109-52D1-47F6-AB8E-758F803E403D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtPZPMainWindow", "QtPZPMainWindow\QtPZPMainWindow.vcxproj", "{D72C1A89-5089-454E-AF07-E10B69BEDB3E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MediatorDLL", "MediatorDLL\MediatorDLL.vcxproj", "{00A0A88F-9471-4828-B882-3124EB9A9904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,14 @@ Global
 		{D72C1A89-5089-454E-AF07-E10B69BEDB3E}.Release|x64.Build.0 = Release|x64
 		{D72C1A89-5089-454E-AF07-E10B69BEDB3E}.Release|x86.ActiveCfg = Release|x64
 		{D72C1A89-5089-454E-AF07-E10B69BEDB3E}.Release|x86.Build.0 = Release|x64
+		{00A0A88F-9471-4828-B882-3124EB9A9904}.Debug|x64.ActiveCfg = Debug|x64
+		{00A0A88F-9471-4828-B882-3124EB9A9904}.Debug|x64.Build.0 = Debug|x64
+		{00A0A88F-9471-4828-B882-3124EB9A9904}.Debug|x86.ActiveCfg = Debug|Win32
+		{00A0A88F-9471-4828-B882-3124EB9A9904}.Debug|x86.Build.0 = Debug|Win32
+		{00A0A88F-9471-4828-B882-3124EB9A9904}.Release|x64.ActiveCfg = Release|x64
+		{00A0A88F-9471-4828-B882-3124EB9A9904}.Release|x64.Build.0 = Release|x64
+		{00A0A88F-9471-4828-B882-3124EB9A9904}.Release|x86.ActiveCfg = Release|Win32
+		{00A0A88F-9471-4828-B882-3124EB9A9904}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

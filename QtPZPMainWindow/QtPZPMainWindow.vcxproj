@@ -20,7 +20,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -94,13 +94,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="UIMediator.cpp" />
     <ClCompile Include="QtPZPMainWindow.cpp" />
     <ClCompile Include="QtPZPApplication.cpp" />
     <ClCompile Include="Start.cpp" />
+    <ClCompile Include="UIMediatorComponent.cpp" />
     <ClInclude Include="DI.h" />
+    <ClInclude Include="UIMediatorComponent.h" />
     <QtMoc Include="QtPZPMainWindow.h" />
-    <ClInclude Include="UIMediator.h" />
     <ClInclude Include="QtPZPApplication.h" />
     <ClInclude Include="Start.h" />
     <ClInclude Include="qtpzpmainwindow_global.h" />
@@ -108,6 +108,11 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="QtMainWindow.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MediatorDLL\MediatorDLL.vcxproj">
+      <Project>{00a0a88f-9471-4828-b882-3124eb9a9904}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

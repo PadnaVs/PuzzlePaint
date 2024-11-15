@@ -35,7 +35,7 @@
     <ClInclude Include="QtPZPApplication.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UIMediator.h">
+    <ClInclude Include="UIMediatorComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -52,7 +52,7 @@
     <ClCompile Include="QtPZPMainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UIMediator.cpp">
+    <ClCompile Include="UIMediatorComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

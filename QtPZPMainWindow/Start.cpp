@@ -21,7 +21,8 @@ void ShowMainWindow()
 	}
 };
 
-QTDLL_EXPORT IQtUIApp* GetQtUIMediator()
+
+QTDLL_EXPORT UIMediatorComponent* GetQtUIMediator()
 {
 	QtPZPApplication* pApplication = DI<QtPZPApplication, QtPZPApplication>::GetSingleton();
 	if (!pApplication)
@@ -29,3 +30,4 @@ QTDLL_EXPORT IQtUIApp* GetQtUIMediator()
 
 	return pApplication->GetUIMediator();
 }
+

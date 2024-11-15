@@ -17,12 +17,14 @@ void QtPZPApplication::ShowWindow()
 	m_mainWindow.show();
 }
 
-UIMediator* QtPZPApplication::GetUIMediator()
+
+UIMediatorComponent* QtPZPApplication::GetUIMediator()
 {
 	return &m_uiMediator;
 }
 
+
 void QtPZPApplication::slotPushBut()
 {
-	m_uiMediator.SendEventPushButton();
+	m_uiMediator.DoA();
 }
