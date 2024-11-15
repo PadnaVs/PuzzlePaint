@@ -1,15 +1,13 @@
 #pragma once
 #include <iostream>
 #include "../MediatorDLL/BaseMediatorComponent.h"
+#include "qtpzpmainwindow_global.h"
 
-class UIMediatorComponent :
+class QTDLL_EXPORT UIMediatorComponent :
     public BaseMediatorComponent
 {
 public:
-	void DoA()
-	{
-		std::cout << "Component UI does A.\n";
-		m_pMediator->Notify(this, "A");
-	}
+	void DoA();
+	void ShowText(const std::wstring& strText);
 };
 

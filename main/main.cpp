@@ -1,16 +1,16 @@
 #include "../QtPZPMainWindow/Start.h"
-#include "../PuzzlePaintCore/Test.h"
 #include "MediatorDLL.h"
+#include "../PuzzlePaintCore/Start.h"
 
 int main(int argc, char* argv[])
 {
+	CreateCoreApp();
 	CreateQtUIApp(argc, argv, 6);
 
-	Test ts;
-
+	CoreMediatorComponent* pCoreMediator = GetCoreMediator();
 	UIMediatorComponent* pMediatorUI = GetQtUIMediator();
-
-	MediatorDLL mediatorDLL(&ts.m_coreMediator, pMediatorUI);
+	
+	MediatorDLL mediatorDLL(pCoreMediator, pMediatorUI);
 
 	ShowMainWindow();
 	return 0;

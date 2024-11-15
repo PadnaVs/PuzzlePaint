@@ -17,7 +17,7 @@ public:
 
 	void ShowWindow();
 	UIMediatorComponent* GetUIMediator();
-
+	void SetText(const std::wstring& strText);
 private slots:
 	void slotPushBut();
 private:

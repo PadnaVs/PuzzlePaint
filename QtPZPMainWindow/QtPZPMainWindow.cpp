@@ -15,6 +15,11 @@ QtPZPMainWindow::~QtPZPMainWindow()
 
 }
 
+void QtPZPMainWindow::SetText(const std::wstring& strText)
+{
+	ui.label->setText(QString::fromStdWString(strText));
+}
+
 void QtPZPMainWindow::slotPushButton()
 {
 	QtPZPApplication* pApp = GetPZPQtApplication();

@@ -4,5 +4,5 @@
 
 QTDLL_EXPORT QtPZPApplication* GetPZPQtApplication()
 {
-	return DI<QtPZPApplication, QtPZPApplication>::GetConcreteSingletone();
+	return DI<QtPZPApplication, QtPZPApplication>::GetConcreteSingleton();
 }

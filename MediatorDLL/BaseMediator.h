@@ -8,5 +8,5 @@ class BaseMediatorComponent;
 class MEDIATOR_DLL_EXPORT Mediator
 {
 public:
-	virtual void Notify(BaseMediatorComponent* pComp, const std::string& strEvent) const = 0;
+	virtual void Notify(BaseMediatorComponent* pComp, const std::string& strEvent, void* pData = nullptr) const = 0;
 };

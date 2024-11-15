@@ -12,7 +12,7 @@ public:
 	template<typename ...Args>
 	static void AddSingleton(Args&... args) {
 		const auto& name = std::string(typeid(T).name());
-		if (singletones.end() == singletones.find(name)) 
+		if (singletones.find(name) == singletones.end())
 			singletones[name] = std::make_unique<T>(args...);
 	}
 
@@ -31,7 +31,7 @@ public:
 		return nullptr;
 	}
 
-	static T* GetConcreteSingletone() {
+	static T* GetConcreteSingleton() {
 		T* pT = static_cast<T*>(GetSingleton());
 		if (pT)
 		{

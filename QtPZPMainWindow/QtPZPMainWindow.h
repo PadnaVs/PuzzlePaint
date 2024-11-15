@@ -11,6 +11,9 @@ public:
 	QtPZPMainWindow(QWidget *parent = nullptr);
 	~QtPZPMainWindow();
 
+
+	void SetText(const std::wstring& strText);
+
 signals:
 	void signalPushButton();
 
