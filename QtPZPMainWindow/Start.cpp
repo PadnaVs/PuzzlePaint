@@ -1,16 +1,15 @@
 #include "Start.h"
 #include "DI.h"
-
 #include "QtPZPApplication.h"
 
 void CreateQtUIApp(int& argc, char** argv, int flags)
 {
-	DI<QtPZPApplication, QtPZPApplication>::AddSingleton(argc, argv, flags);
+	PzpUI::DI<PzpUI::QtPZPApplication, PzpUI::QtPZPApplication>::AddSingleton(argc, argv, flags);
 }
 
-void ShowMainWindow() 
+void ShowMainWindow()
 {
-	QtPZPApplication* pApplication = DI<QtPZPApplication, QtPZPApplication>::GetSingleton();
+	PzpUI::QtPZPApplication* pApplication = PzpUI::DI<PzpUI::QtPZPApplication, PzpUI::QtPZPApplication>::GetSingleton();
 	if (!pApplication)
 		return;
 
@@ -22,9 +21,9 @@ void ShowMainWindow()
 };
 
 
-QTDLL_EXPORT UIMediatorComponent* GetQtUIMediator()
+QTDLL_EXPORT PzpUI::UIMediatorComponent* GetQtUIMediator()
 {
-	QtPZPApplication* pApplication = DI<QtPZPApplication, QtPZPApplication>::GetSingleton();
+	PzpUI::QtPZPApplication* pApplication = PzpUI::DI<PzpUI::QtPZPApplication, PzpUI::QtPZPApplication>::GetSingleton();
 	if (!pApplication)
 		return nullptr;
 

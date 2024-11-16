@@ -1,7 +1,10 @@
 #include "pch.h"
 #include "PZPCore.h"
 
-std::wstring& PZPCore::GetText()
+namespace PzpCoreApp
 {
-	return m_strType;
+	std::wstring& PZPCore::GetText()
+	{
+		return m_strType;
+	}
 }

@@ -4,9 +4,14 @@
 #include <string>
 #include "Consts.h"
 
-class BaseMediatorComponent;
-class MEDIATOR_DLL_EXPORT Mediator
+namespace PZPLib
 {
-public:
-	virtual void Notify(BaseMediatorComponent* pComp, const std::string& strEvent, void* pData = nullptr) const = 0;
-};
+	class BaseMediatorComponent;
+
+	class MEDIATOR_DLL_EXPORT Mediator
+	{
+	public:
+		virtual void Notify(BaseMediatorComponent* pComp, const std::string& strEvent, void* pData = nullptr) const = 0;
+	};
+}
+

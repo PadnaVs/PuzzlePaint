@@ -3,13 +3,16 @@
 #include "../MediatorDLL/BaseMediatorComponent.h"
 #include "Consts.h"
 
-class PUZZLE_PAINT_DLL_EXPORT CoreMediatorComponent :
-    public BaseMediatorComponent
+namespace PzpCoreApp
 {
-public:
-	CoreMediatorComponent();
-	~CoreMediatorComponent();
+	class PUZZLE_PAINT_DLL_EXPORT CoreMediatorComponent :
+		public PZPLib::BaseMediatorComponent
+	{
+	public:
+		CoreMediatorComponent();
+		~CoreMediatorComponent();
 
-	void DoB();
-};
+		void DoB();
+	};
+}
 

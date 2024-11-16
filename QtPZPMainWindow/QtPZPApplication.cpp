@@ -1,35 +1,37 @@
 #include "QtPZPApplication.h"
 #include <iostream>
 
-
-QtPZPApplication::QtPZPApplication(int& argc, char** argv, int flags /*= ApplicationFlags*/) : QApplication(argc, argv, flags)
+namespace PzpUI
 {
-	connect(&m_mainWindow, SIGNAL(m_mainWindow.signalPushButton()), this, SLOT(slotPushBut()));
-}
+	QtPZPApplication::QtPZPApplication(int& argc, char** argv, int flags /*= ApplicationFlags*/) : QApplication(argc, argv, flags)
+	{
+		connect(&m_mainWindow, SIGNAL(m_mainWindow.signalPushButton()), this, SLOT(slotPushBut()));
+	}
 
-QtPZPApplication::~QtPZPApplication()
-{
+	QtPZPApplication::~QtPZPApplication()
+	{
 
-}
+	}
 
-void QtPZPApplication::ShowWindow()
-{
-	m_mainWindow.show();
-}
-
-
-UIMediatorComponent* QtPZPApplication::GetUIMediator()
-{
-	return &m_uiMediator;
-}
+	void QtPZPApplication::ShowWindow()
+	{
+		m_mainWindow.show();
+	}
 
 
-void QtPZPApplication::SetText(const std::wstring& strText)
-{
-	m_mainWindow.SetText(strText);
-}
+	UIMediatorComponent* QtPZPApplication::GetUIMediator()
+	{
+		return &m_uiMediator;
+	}
 
-void QtPZPApplication::slotPushBut()
-{
-	m_uiMediator.DoA();
+
+	void QtPZPApplication::SetText(const std::wstring& strText)
+	{
+		m_mainWindow.SetText(strText);
+	}
+
+	void QtPZPApplication::slotPushBut()
+	{
+		m_uiMediator.DoA();
+	}
 }

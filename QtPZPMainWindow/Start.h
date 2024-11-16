@@ -4,4 +4,4 @@
 
 QTDLL_EXPORT void CreateQtUIApp(int& argc, char** argv, int flags);
 QTDLL_EXPORT void ShowMainWindow();
-QTDLL_EXPORT UIMediatorComponent* GetQtUIMediator();
+QTDLL_EXPORT PzpUI::UIMediatorComponent* GetQtUIMediator();

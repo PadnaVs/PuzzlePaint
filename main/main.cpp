@@ -7,8 +7,8 @@ int main(int argc, char* argv[])
 	CreateCoreApp();
 	CreateQtUIApp(argc, argv, 6);
 
-	CoreMediatorComponent* pCoreMediator = GetCoreMediator();
-	UIMediatorComponent* pMediatorUI = GetQtUIMediator();
+	PzpCoreApp::CoreMediatorComponent* pCoreMediator = GetCoreMediator();
+	PzpUI::UIMediatorComponent* pMediatorUI = GetQtUIMediator();
 	
 	MediatorDLL mediatorDLL(pCoreMediator, pMediatorUI);
 

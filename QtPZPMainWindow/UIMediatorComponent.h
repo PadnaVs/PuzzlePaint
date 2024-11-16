@@ -3,11 +3,13 @@
 #include "../MediatorDLL/BaseMediatorComponent.h"
 #include "qtpzpmainwindow_global.h"
 
-class QTDLL_EXPORT UIMediatorComponent :
-    public BaseMediatorComponent
+namespace PzpUI
 {
-public:
-	void DoA();
-	void ShowText(const std::wstring& strText);
-};
-
+	class QTDLL_EXPORT UIMediatorComponent :
+		public PZPLib::BaseMediatorComponent
+	{
+	public:
+		void DoA();
+		void ShowText(const std::wstring& strText);
+	};
+}

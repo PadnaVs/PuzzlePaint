@@ -3,23 +3,26 @@
 #include <QWidget>
 #include "ui_QtMainWindow.h"
 
-class QtPZPMainWindow : public QWidget
+namespace PzpUI
 {
-	Q_OBJECT
+	class QtPZPMainWindow : public QWidget
+	{
+		Q_OBJECT
 
-public:
-	QtPZPMainWindow(QWidget *parent = nullptr);
-	~QtPZPMainWindow();
+	public:
+		QtPZPMainWindow(QWidget* parent = nullptr);
+		~QtPZPMainWindow();
 
 
-	void SetText(const std::wstring& strText);
+		void SetText(const std::wstring& strText);
 
-signals:
-	void signalPushButton();
+	signals:
+		void signalPushButton();
 
-private slots:
-	void slotPushButton();
+	private slots:
+		void slotPushButton();
 
-private:
-	Ui::QtMainWindowClass ui;
-};
+	private:
+		Ui::QtMainWindowClass ui;
+	};
+}

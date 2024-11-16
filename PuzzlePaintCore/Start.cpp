@@ -5,12 +5,12 @@
 
 PUZZLE_PAINT_DLL_EXPORT void CreateCoreApp()
 {
-	DI<PZPCore, PZPCore>::AddSingleton();
+	PzpCoreApp::DI<PzpCoreApp::PZPCore, PzpCoreApp::PZPCore>::AddSingleton();
 }
 
-PUZZLE_PAINT_DLL_EXPORT CoreMediatorComponent* GetCoreMediator()
+PUZZLE_PAINT_DLL_EXPORT PzpCoreApp::CoreMediatorComponent* GetCoreMediator()
 {
-	PZPCore* pApplication = DI<PZPCore, PZPCore>::GetConcreteSingleton();
+	PzpCoreApp::PZPCore* pApplication = PzpCoreApp::DI<PzpCoreApp::PZPCore, PzpCoreApp::PZPCore>::GetConcreteSingleton();
 	if (!pApplication)
 		return nullptr;
 

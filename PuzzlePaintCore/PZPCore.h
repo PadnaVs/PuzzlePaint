@@ -2,25 +2,27 @@
 #include "DI.h"
 #include "CoreMediatorComponent.h"
 
-class PZPCore
+namespace PzpCoreApp
 {
-	template <class I, class T>
-	friend class DI;
-
-public:
-	PZPCore() : m_strType(L"Core Job")
+	class PZPCore
 	{
-	
-	}
+		template <class I, class T>
+		friend class DI;
 
-	~PZPCore() 
-	{
-	
-	}
+	public:
+		PZPCore() : m_strType(L"Core Job")
+		{
 
-	std::wstring& GetText();
+		}
 
-	CoreMediatorComponent m_coreMediator;
-	std::wstring m_strType;
-};
+		~PZPCore()
+		{
 
+		}
+
+		std::wstring& GetText();
+
+		CoreMediatorComponent m_coreMediator;
+		std::wstring m_strType;
+	};
+}
