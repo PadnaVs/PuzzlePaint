@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include "ui_QtMainWindow.h"
+#include "UICommandHandler.h"
 
 namespace PzpUI
 {
@@ -13,16 +14,20 @@ namespace PzpUI
 		QtPZPMainWindow(QWidget* parent = nullptr);
 		~QtPZPMainWindow();
 
-
-		void SetText(const std::wstring& strText);
-
 	signals:
-		void signalPushButton();
+		void signalOpenFile(std::wstring strFilename);
 
 	private slots:
-		void slotPushButton();
+		void slotOpenFile();
+		void slotShowImage(std::wstring strFilename);
 
 	private:
 		Ui::QtMainWindowClass ui;
+
+		QPushButton* m_pButOpenFile;
+
+		QLabel* m_pLabelImageOut;
+
+		UICommandHandler m_UICommandHabdler;
 	};
 }

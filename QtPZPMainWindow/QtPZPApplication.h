@@ -19,9 +19,10 @@ namespace PzpUI
 
 		void ShowWindow();
 		UIMediatorComponent* GetUIMediator();
-		void SetText(const std::wstring& strText);
+		
 	private slots:
 		void slotPushBut();
+
 	private:
 		QtPZPMainWindow m_mainWindow;
 		UIMediatorComponent m_uiMediator;

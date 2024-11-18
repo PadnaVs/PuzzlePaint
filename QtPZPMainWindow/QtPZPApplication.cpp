@@ -25,10 +25,11 @@ namespace PzpUI
 	}
 
 
+/*
 	void QtPZPApplication::SetText(const std::wstring& strText)
 	{
 		m_mainWindow.SetText(strText);
-	}
+	}*/
 
 	void QtPZPApplication::slotPushBut()
 	{

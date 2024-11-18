@@ -10,6 +10,5 @@ namespace PzpUI
 	{
 	public:
 		void DoA();
-		void ShowText(const std::wstring& strText);
 	};
 }

@@ -94,11 +94,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Commands.cpp" />
     <ClCompile Include="QtPZPMainWindow.cpp" />
     <ClCompile Include="QtPZPApplication.cpp" />
     <ClCompile Include="Start.cpp" />
+    <ClCompile Include="UICommandHandler.cpp" />
     <ClCompile Include="UIMediatorComponent.cpp" />
+    <ClInclude Include="Commands.h" />
     <ClInclude Include="DI.h" />
+    <ClInclude Include="UICommandHandler.h" />
     <ClInclude Include="UIMediatorComponent.h" />
     <QtMoc Include="QtPZPMainWindow.h" />
     <ClInclude Include="QtPZPApplication.h" />

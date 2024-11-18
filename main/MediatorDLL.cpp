@@ -12,11 +12,4 @@ void MediatorDLL::Notify(PZPLib::BaseMediatorComponent* sender, const std::strin
 	{
 		this->m_pCore->DoB();
 	}
-	if (event == "C") 
-	{
-		wchar_t* pStr = static_cast<wchar_t*>(pData);
-		const std::wstring& str(pStr);
-		if (!str.empty()) 
-			this->m_pUI->ShowText(str);
-	}
 }
