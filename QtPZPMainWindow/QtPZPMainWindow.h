@@ -26,8 +26,6 @@ namespace PzpUI
 
 		QPushButton* m_pButOpenFile;
 
-		QLabel* m_pLabelImageOut;
-
 		UICommandHandler m_UICommandHabdler;
 	};
 }

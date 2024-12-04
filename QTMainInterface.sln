@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.35325.158
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PuzzlePaintCore", "PuzzlePaintCore\PuzzlePaintCore.vcxproj", "{FBCE10E1-47BA-4C7E-B643-A9D946A849A3}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtPZPMainWindow", "QtPZPMainWindow\QtPZPMainWindow.vcxproj", "{D72C1A89-5089-454E-AF07-E10B69BEDB3E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MediatorDLL", "MediatorDLL\MediatorDLL.vcxproj", "{00A0A88F-9471-4828-B882-3124EB9A9904}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{170873D9-6490-4FCE-9816-697BFCD5458F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

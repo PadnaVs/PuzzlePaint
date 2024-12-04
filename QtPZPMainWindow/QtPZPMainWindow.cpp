@@ -1,6 +1,9 @@
 #include "QtPZPMainWindow.h"
 #include "QtPZPApplication.h"
 #include "Commands.h"
+#include "QImage.h"
+#include "qplugin.h"
+#include <QPluginLoader>
 
 namespace PzpUI
 {
@@ -10,7 +13,6 @@ namespace PzpUI
 		ui.setupUi(this);
 
 		m_pButOpenFile = ui.m_OpenImgBut;
-		m_pLabelImageOut = ui.m_ImageOut;
 
 		connect(m_pButOpenFile, &QPushButton::clicked, this, &QtPZPMainWindow::slotOpenFile);
 		connect(this, &QtPZPMainWindow::signalOpenFile, this, &QtPZPMainWindow::slotShowImage);
@@ -33,9 +35,23 @@ namespace PzpUI
 			return;
 
 		QString qStrFileName = QString::fromStdWString(strFilename);
+		QImage image(qStrFileName);
 
-		QPixmap myPixmap(qStrFileName);
-		m_pLabelImageOut->setPixmap(myPixmap);
+		std::vector<std::vector<std::vector<int>>> colorSheme;
+
+		for (int i = 0; i < image.width(); ++i)
+		{
+			std::vector<std::vector<int>> colorLine;
+			for (int j = 0; j < image.height(); ++j)
+			{
+				QRgb qColor = image.pixel(i, j);
+				std::vector<int> color { qRed(qColor), qGreen(qColor), qBlue(qColor)};
+				colorLine.push_back(color);
+			}
+
+			colorSheme.push_back(colorLine);
+		}
+
 	}
 
 	/*void QtPZPMainWindow::slotPushButton()
