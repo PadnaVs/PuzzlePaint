@@ -4,9 +4,9 @@
 
 namespace PzpUI
 {
-	void UIMediatorComponent::DoA()
+	void UIMediatorComponent::LoadImage(std::vector<std::vector<std::vector<int>>>& arrPixelMap)
 	{
-		m_pMediator->Notify(this, "A");
+		m_pMediator->Notify(this, "eventLoadImage", &arrPixelMap);
 	}
 
 	/*void UIMediatorComponent::ShowText(const std::wstring& strText)

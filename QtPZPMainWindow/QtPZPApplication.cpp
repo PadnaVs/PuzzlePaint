@@ -33,6 +33,6 @@ namespace PzpUI
 
 	void QtPZPApplication::slotPushBut()
 	{
-		m_uiMediator.DoA();
+		//m_uiMediator.LoadImage();
 	}
 }

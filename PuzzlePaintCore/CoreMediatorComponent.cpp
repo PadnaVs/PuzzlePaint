@@ -15,13 +15,15 @@ namespace PzpCoreApp
 
 	}
 
-	void CoreMediatorComponent::DoB()
+	void CoreMediatorComponent::LoadImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
 	{
 		PZPCore* pPZPCore = GetCoreApplication();
 		if (!pPZPCore)
 			return;
 
-		m_pMediator->Notify(this, "C", &pPZPCore->GetText()[0]);
+		pPZPCore->LoadImage(pArrPixelMap);
+
+		//m_pMediator->Notify(this, "C", &pPZPCore->GetText()[0]);
 	}
 }
 

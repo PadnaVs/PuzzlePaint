@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "../MediatorDLL/BaseMediatorComponent.h"
 #include "qtpzpmainwindow_global.h"
 
@@ -9,6 +10,6 @@ namespace PzpUI
 		public PZPLib::BaseMediatorComponent
 	{
 	public:
-		void DoA();
+		void LoadImage(std::vector<std::vector<std::vector<int>>>& arrPixelMap);
 	};
 }

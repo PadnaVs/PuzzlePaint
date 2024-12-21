@@ -1,9 +1,10 @@
-#include "QtPZPMainWindow.h"
+﻿#include "QtPZPMainWindow.h"
 #include "QtPZPApplication.h"
 #include "Commands.h"
 #include "QImage.h"
 #include "qplugin.h"
 #include <QPluginLoader>
+#include <QMessageBox>
 
 namespace PzpUI
 {
@@ -35,7 +36,15 @@ namespace PzpUI
 			return;
 
 		QString qStrFileName = QString::fromStdWString(strFilename);
-		QImage image(qStrFileName);
+		QImage image;
+		if (!image.load(qStrFileName)) 
+		{
+			const std::wstring& strTitle = L"Ошибка!";
+			const std::wstring& strText = L"Слишком большой файл. Файл не должен привышать 128 мб.";
+
+			QMessageBox::warning(this, QString::fromStdWString(strTitle), QString::fromStdWString(strText));
+		}
+			
 
 		std::vector<std::vector<std::vector<int>>> colorSheme;
 
@@ -52,6 +61,15 @@ namespace PzpUI
 			colorSheme.push_back(colorLine);
 		}
 
+		QtPZPApplication* pApp = GetPZPQtApplication();
+		if (!pApp)
+			return;
+
+		UIMediatorComponent* pMediator = pApp->GetUIMediator();
+		if (!pMediator)
+			return;
+
+		pMediator->LoadImage(colorSheme);
 	}
 
 	/*void QtPZPMainWindow::slotPushButton()

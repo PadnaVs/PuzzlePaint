@@ -1,6 +1,7 @@
 #pragma once
 #include "DI.h"
 #include "CoreMediatorComponent.h"
+#include <vector>
 
 namespace PzpCoreApp
 {
@@ -10,19 +11,14 @@ namespace PzpCoreApp
 		friend class DI;
 
 	public:
-		PZPCore() : m_strType(L"Core Job")
-		{
+		PZPCore();
+		~PZPCore();
 
-		}
-
-		~PZPCore()
-		{
-
-		}
-
-		std::wstring& GetText();
+		void LoadImage(std::vector<std::vector<std::vector<int>>>* arrPixelMap);
 
 		CoreMediatorComponent m_coreMediator;
-		std::wstring m_strType;
+
+	private:
+		std::vector<std::vector<std::vector<int>>> m_pixelMapOgirn;
 	};
 }

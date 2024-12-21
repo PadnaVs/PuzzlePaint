@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "../MediatorDLL/BaseMediatorComponent.h"
 #include "Consts.h"
 
@@ -12,7 +13,7 @@ namespace PzpCoreApp
 		CoreMediatorComponent();
 		~CoreMediatorComponent();
 
-		void DoB();
+		void LoadImage(std::vector<std::vector<std::vector<int>>>* pArtPixelMap);
 	};
 }
 

@@ -1,4 +1,5 @@
 #include "MediatorDLL.h"
+#include <memory>
 
 MediatorDLL::MediatorDLL(PzpCoreApp::CoreMediatorComponent* pCore, PzpUI::UIMediatorComponent* pUI) : m_pCore(pCore), m_pUI(pUI)
 {
@@ -8,8 +9,12 @@ MediatorDLL::MediatorDLL(PzpCoreApp::CoreMediatorComponent* pCore, PzpUI::UIMedi
 
 void MediatorDLL::Notify(PZPLib::BaseMediatorComponent* sender, const std::string& event, void* pData /*= nullptr*/) const
 {
-	if (event == "A") 
+	if (event == "eventLoadImage") 
 	{
-		this->m_pCore->DoB();
+		std::vector<std::vector<std::vector<int>>>* pArrPixelMap = (std::vector<std::vector<std::vector<int>>>*)(pData);
+		if (!pArrPixelMap)
+			return;
+
+		this->m_pCore->LoadImage(pArrPixelMap);
 	}
 }
