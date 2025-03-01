@@ -14,6 +14,8 @@ namespace PzpCoreApp
 		~CoreMediatorComponent();
 
 		void LoadImage(std::vector<std::vector<std::vector<int>>>* pArtPixelMap);
+
+		void DrawImage(std::vector<std::vector<std::vector<int>>>& arrPixelMap);
 	};
 }
 

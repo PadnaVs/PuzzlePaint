@@ -32,6 +32,7 @@ namespace PzpCoreApp
 		else 
 		{
 			std::cout << "\n\Load nice!\n";
+			m_coreMediator.DrawImage(m_pixelMapOgirn);
 		}
 	}
 }

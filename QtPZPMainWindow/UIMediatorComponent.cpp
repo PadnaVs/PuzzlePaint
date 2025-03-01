@@ -9,12 +9,13 @@ namespace PzpUI
 		m_pMediator->Notify(this, "eventLoadImage", &arrPixelMap);
 	}
 
-	/*void UIMediatorComponent::ShowText(const std::wstring& strText)
+	void UIMediatorComponent::DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
 	{
 		QtPZPApplication* pApp = GetPZPQtApplication();
 		if (!pApp)
 			return;
 
-		pApp->SetText(strText);
-	}*/
+		pApp->GetPZPMainWindow().DrawImage(pArrPixelMap);
+	}
+
 }

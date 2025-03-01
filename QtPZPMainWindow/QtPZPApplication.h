@@ -20,6 +20,8 @@ namespace PzpUI
 		void ShowWindow();
 		UIMediatorComponent* GetUIMediator();
 		
+		QtPZPMainWindow& GetPZPMainWindow();
+
 	private slots:
 		void slotPushBut();
 

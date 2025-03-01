@@ -8,7 +8,7 @@ class MediatorDLL : public PZPLib::Mediator
 public:
 	MediatorDLL(PzpCoreApp::CoreMediatorComponent* pCore, PzpUI::UIMediatorComponent* pUI);
 
-	void Notify(PZPLib::BaseMediatorComponent* sender, const std::string& event, void* pData = nullptr) const override;
+	void Notify(PZPLib::BaseMediatorComponent* sender, const std::string& strEvent, void* pData = nullptr) const override;
 private:
 	PzpCoreApp::CoreMediatorComponent* m_pCore;
 	PzpUI::UIMediatorComponent* m_pUI;

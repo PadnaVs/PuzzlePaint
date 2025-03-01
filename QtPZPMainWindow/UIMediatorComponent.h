@@ -11,5 +11,6 @@ namespace PzpUI
 	{
 	public:
 		void LoadImage(std::vector<std::vector<std::vector<int>>>& arrPixelMap);
+		void DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap);
 	};
 }

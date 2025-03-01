@@ -5,7 +5,7 @@ namespace PzpUI
 {
 	QtPZPApplication::QtPZPApplication(int& argc, char** argv, int flags /*= ApplicationFlags*/) : QApplication(argc, argv, flags)
 	{
-		connect(&m_mainWindow, SIGNAL(m_mainWindow.signalPushButton()), this, SLOT(slotPushBut()));
+		//connect(&m_mainWindow, SIGNAL(m_mainWindow.signalPushButton()), this, SLOT(slotPushBut()));
 	}
 
 	QtPZPApplication::~QtPZPApplication()
@@ -24,15 +24,13 @@ namespace PzpUI
 		return &m_uiMediator;
 	}
 
-
-/*
-	void QtPZPApplication::SetText(const std::wstring& strText)
+	PzpUI::QtPZPMainWindow& QtPZPApplication::GetPZPMainWindow()
 	{
-		m_mainWindow.SetText(strText);
-	}*/
+		return m_mainWindow;
+	}
 
 	void QtPZPApplication::slotPushBut()
 	{
-		//m_uiMediator.LoadImage();
+		
 	}
 }

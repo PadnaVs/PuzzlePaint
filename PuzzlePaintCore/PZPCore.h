@@ -15,6 +15,11 @@ namespace PzpCoreApp
 		~PZPCore();
 
 		void LoadImage(std::vector<std::vector<std::vector<int>>>* arrPixelMap);
+		
+		std::vector<std::vector<std::vector<int>>>* ReadImage() 
+		{
+			return &m_pixelMapOgirn;
+		}
 
 		CoreMediatorComponent m_coreMediator;
 

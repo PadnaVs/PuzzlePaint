@@ -21,10 +21,15 @@ namespace PzpUI
 		void slotOpenFile();
 		void slotShowImage(std::wstring strFilename);
 
+	public:
+		void DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap);
+
 	private:
 		Ui::QtMainWindowClass ui;
 
 		QPushButton* m_pButOpenFile;
+		std::unique_ptr<QGraphicsScene> m_pScene;
+		QGraphicsView* m_pGraphicsView;
 
 		UICommandHandler m_UICommandHabdler;
 	};

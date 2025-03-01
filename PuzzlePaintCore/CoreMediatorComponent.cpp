@@ -22,8 +22,12 @@ namespace PzpCoreApp
 			return;
 
 		pPZPCore->LoadImage(pArrPixelMap);
-
-		//m_pMediator->Notify(this, "C", &pPZPCore->GetText()[0]);
 	}
+
+	void CoreMediatorComponent::DrawImage(std::vector<std::vector<std::vector<int>>>& arrPixelMap)
+	{
+		m_pMediator->Notify(this, "eventDrawImage", &arrPixelMap);
+	}
+
 }
 
