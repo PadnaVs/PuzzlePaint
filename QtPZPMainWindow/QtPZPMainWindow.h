@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include "ui_QtMainWindow.h"
+#include <ImageManipulator.h>
 
 namespace PzpUI
 {
@@ -23,12 +24,13 @@ namespace PzpUI
 	public:
 		std::wstring OpenFile();
 		void DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap);
+		
 
 	private:
 		Ui::QtMainWindowClass ui;
 
 		QPushButton* m_pButOpenFile;
-		std::unique_ptr<QGraphicsScene> m_pScene;
-		QGraphicsView* m_pGraphicsView;
+
+		ImageManipulator m_ImageManipulator;
 	};
 }

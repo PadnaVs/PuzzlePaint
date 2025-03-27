@@ -96,12 +96,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Commands.cpp" />
+    <ClCompile Include="ImageManipulator.cpp" />
     <ClCompile Include="QtPZPMainWindow.cpp" />
     <ClCompile Include="QtPZPApplication.cpp" />
     <ClCompile Include="Start.cpp" />
     <ClCompile Include="UIMediatorComponent.cpp" />
     <ClInclude Include="Commands.h" />
     <ClInclude Include="DI.h" />
+    <ClInclude Include="ImageManipulator.h" />
     <ClInclude Include="UIMediatorComponent.h" />
     <QtMoc Include="QtPZPMainWindow.h" />
     <ClInclude Include="QtPZPApplication.h" />
