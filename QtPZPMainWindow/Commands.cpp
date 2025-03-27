@@ -1,6 +1,8 @@
 #include "Commands.h"
+#include "QFileDialog"
+#include "string"
 
-PzpUI::CommandOpenFile::CommandOpenFile(UICommandHandler& pCommandHandler) : m_pCommandHandler(pCommandHandler)
+PzpUI::CommandOpenFile::CommandOpenFile(std::wstring& strResult) : m_strResult(strResult)
 {
 
 }
@@ -15,17 +17,22 @@ PzpUI::CommandOpenFile& PzpUI::CommandOpenFile::operator=(CommandOpenFile& other
 	return other;
 }
 
-PzpUI::CommandOpenFile::CommandOpenFile(CommandOpenFile&& other) : m_pCommandHandler(other.m_pCommandHandler)
+PzpUI::CommandOpenFile::CommandOpenFile(CommandOpenFile&& other) : m_strResult(other.m_strResult)
 {
 
 }
 
-PzpUI::CommandOpenFile::CommandOpenFile(CommandOpenFile& other) : m_pCommandHandler(other.m_pCommandHandler)
+PzpUI::CommandOpenFile::CommandOpenFile(CommandOpenFile& other) : m_strResult(other.m_strResult)
 {
 
 }
 
-std::wstring PzpUI::CommandOpenFile::Run()
+bool PzpUI::CommandOpenFile::isRun()
 {
-	return m_pCommandHandler.OpenFile();
+	return true;
+}
+
+void PzpUI::CommandOpenFile::Run()
+{
+	m_strResult = QFileDialog::getOpenFileName().toStdWString();
 }

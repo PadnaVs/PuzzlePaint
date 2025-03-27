@@ -2,7 +2,6 @@
 
 #include <QWidget>
 #include "ui_QtMainWindow.h"
-#include "UICommandHandler.h"
 
 namespace PzpUI
 {
@@ -15,13 +14,14 @@ namespace PzpUI
 		~QtPZPMainWindow();
 
 	signals:
-		void signalOpenFile(std::wstring strFilename);
+		void signalOpenFile(std::wstring strFileName);
 
 	private slots:
 		void slotOpenFile();
-		void slotShowImage(std::wstring strFilename);
+		void slotShowImage(std::wstring strFileName);
 
 	public:
+		std::wstring OpenFile();
 		void DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap);
 
 	private:
@@ -30,7 +30,5 @@ namespace PzpUI
 		QPushButton* m_pButOpenFile;
 		std::unique_ptr<QGraphicsScene> m_pScene;
 		QGraphicsView* m_pGraphicsView;
-
-		UICommandHandler m_UICommandHabdler;
 	};
 }

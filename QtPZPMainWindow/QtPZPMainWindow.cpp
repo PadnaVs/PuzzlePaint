@@ -36,8 +36,7 @@ namespace PzpUI
 
 	void QtPZPMainWindow::slotOpenFile()
 	{
-		CommandOpenFile cof(m_UICommandHabdler);
-		signalOpenFile(cof.Run());
+		signalOpenFile(OpenFile());
 	}
 
 	void QtPZPMainWindow::slotShowImage(std::wstring strFilename)
@@ -79,6 +78,16 @@ namespace PzpUI
 			return;
 
 		pMediator->LoadImage(colorSheme);
+	}
+
+	std::wstring QtPZPMainWindow::OpenFile()
+	{
+		std::wstring strRes;
+
+		CommandOpenFile commandOpenFile(strRes);
+		commandOpenFile.Run();
+
+		return strRes;
 	}
 
 	void QtPZPMainWindow::DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap)

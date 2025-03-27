@@ -1,15 +1,25 @@
 #pragma once
-#include "UICommandHandler.h"
 #include <string>
 
 namespace PzpUI
 {
-	class CommandOpenFile
+	class ICommand 
 	{
 	public:
-		CommandOpenFile(UICommandHandler& pCommandHandler);
+		ICommand() {}
+		virtual ~ICommand() {}
+
+		virtual bool isRun() = 0;
+		virtual void Run() = 0;
+	};
+
+	class CommandOpenFile : public ICommand
+	{
+	public:
+		CommandOpenFile(std::wstring& strResult);
 		
-		std::wstring Run();
+		bool isRun() override;
+		void Run() override;
 
 	private:
 		CommandOpenFile(CommandOpenFile& other);
@@ -17,6 +27,6 @@ namespace PzpUI
 		CommandOpenFile& operator=(CommandOpenFile& other);
 		CommandOpenFile& operator=(CommandOpenFile&& other);
 
-		UICommandHandler& m_pCommandHandler;
+		std::wstring& m_strResult;
 	};
 }
