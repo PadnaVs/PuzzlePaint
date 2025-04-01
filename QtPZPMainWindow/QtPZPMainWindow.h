@@ -21,6 +21,8 @@ namespace PzpUI
 		void slotOpenFile();
 		void slotShowImage(std::wstring strFileName);
 
+		void slotTest();
+
 	public:
 		std::wstring OpenFile();
 		void DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap);

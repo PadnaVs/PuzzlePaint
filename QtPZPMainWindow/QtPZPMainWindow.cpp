@@ -20,6 +20,8 @@ namespace PzpUI
 
 		connect(m_pButOpenFile, &QPushButton::clicked, this, &QtPZPMainWindow::slotOpenFile);
 		connect(this, &QtPZPMainWindow::signalOpenFile, this, &QtPZPMainWindow::slotShowImage);
+
+		connect(ui.m_pushButton_2, &QPushButton::clicked, this, &QtPZPMainWindow::slotTest);
 	}
 
 	QtPZPMainWindow::~QtPZPMainWindow()
@@ -30,6 +32,11 @@ namespace PzpUI
 	void QtPZPMainWindow::slotOpenFile()
 	{
 		signalOpenFile(OpenFile());
+	}
+	
+	void QtPZPMainWindow::slotTest()
+	{
+		m_ImageManipulator.Update();
 	}
 
 	void QtPZPMainWindow::slotShowImage(std::wstring strFilename)
