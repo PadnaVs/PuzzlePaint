@@ -15,10 +15,22 @@ void ImageManipulator::SetGraphicsView(QGraphicsView* pGraphicsView)
 	m_pGraphicsView = pGraphicsView;
 
 	m_pGraphicsView->setScene(m_pScene.get());
+	m_pScene->addItem(&m_ImageItem);
+
 	m_pGraphicsView->show();
 }
 
-void ImageManipulator::DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
+void ImageManipulator::CreateNewImage(int widht, int height)
+{
+	if (!m_pGraphicsView)
+		return;
+
+	m_ImageItem.SetNewImage(widht, height);
+
+	m_pGraphicsView->update();
+}
+
+void ImageManipulator::ChangeImage(int x, int y, int widht, int heigth, std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
 {
 	if (!pArrPixelMap)
 		return;
@@ -26,33 +38,83 @@ void ImageManipulator::DrawImage(std::vector<std::vector<std::vector<int>>>* pAr
 	if (!m_pGraphicsView)
 		return;
 
-	int w = pArrPixelMap->size();
-	int h = pArrPixelMap->at(0).size();
-
-	m_pScene->clear();
-
-	m_Image = std::make_unique<QImage>(w, h, QImage::Format::Format_RGB32);
-
-	for (int i = 0; i < w; ++i)
+	for (int i = x; i < widht; ++i)
 	{
-		for (int j = 0; j < h; ++j)
+		for (int j = y; j < heigth; ++j)
 		{
-			QRgb rgb(qRgb(pArrPixelMap->at(i)[j][0], pArrPixelMap->at(i)[j][1], pArrPixelMap->at(i)[j][2]));
-			QColor color(rgb);
-			m_Image->setPixel(i, j, rgb);
+			m_ImageItem.SetPixel(i, j, qRgb(pArrPixelMap->at(i)[j][0], pArrPixelMap->at(i)[j][1], pArrPixelMap->at(i)[j][2]));
 		}
 	}
 
-	m_i.image = m_Image.get();
-	m_pScene->addItem(&m_i);
+	m_pGraphicsView->update();
+}
 
-	/*QGraphicsPixmapItem* pp = m_pScene->addPixmap(m_pixMap);
-
-	m_pp = pp;
-
-	m_pixMap.convertFromImage(*m_Image);
-
-	m_pp->setPixmap(m_pixMap);*/
+void ImageManipulator::Update()
+{
+	for (int i = 0; i < 100; ++i)
+	{
+		for (int j = 0; j < 100; ++j)
+		{
+			m_ImageItem.SetPixel(i, j, qRgb(0, 0, 0));
+		}
+	}
 
 	m_pGraphicsView->update();
+}
+
+QRectF ImageItem::boundingRect() const
+{
+	return QRectF(0, 0, m_pImage->width(), m_pImage->height());
+}
+
+void ImageItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+{
+	painter->drawImage(0, 0, *m_pImage);
+}
+
+ImageItem::ImageItem() : m_pImage(std::make_unique<QImage>())
+{
+
+}
+
+ImageItem::ImageItem(ImageItem& othr)
+{
+
+}
+
+ImageItem::ImageItem(ImageItem&& othr)
+{
+
+}
+
+ImageItem::ImageItem(ImageItem* othr)
+{
+
+}
+
+void ImageItem::operator=(ImageItem* other)
+{
+
+}
+
+void ImageItem::operator=(ImageItem& other)
+{
+
+}
+
+ImageItem::~ImageItem()
+{
+
+}
+
+void ImageItem::SetNewImage(int widht, int height)
+{
+	m_pImage = std::make_unique<QImage>(widht, height, QImage::Format::Format_RGB32);
+}
+
+void ImageItem::SetPixel(int x, int y, QRgb rgbColor)
+{
+	QRgb rgb(rgbColor);
+	QColor color(rgb);
+	m_pImage->setPixel(x, y, rgb);
 }

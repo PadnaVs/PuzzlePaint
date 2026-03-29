@@ -4,19 +4,34 @@
 #include <QGraphicsItem>
 #include <QRectF>
 
-class ImageItem : public QGraphicsItem {
+class ImageItem : public QGraphicsItem 
+{
 public:
-	ImageItem() : image(nullptr) {}
+	ImageItem();
 
-	QRectF boundingRect() const override {
-		return QRectF(0, 0, image->width(), image->height());
-	}
+	~ImageItem();
 
-	void paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*) override {
-		painter->drawImage(0, 0, *image);
-	}
+	void SetNewImage(int widht, int height);
 
-	QImage* image;  // ”казатель на оригинал!
+	void SetPixel(int x, int y, QRgb rgbColor);
+
+private:
+	QRectF boundingRect() const override;
+
+	void paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*) override;
+
+private:
+	ImageItem(ImageItem& othr);
+	
+	ImageItem(ImageItem&& othr);
+	
+	ImageItem(ImageItem* othr);
+
+	void operator=(ImageItem& other);
+	void operator=(ImageItem* other);
+
+private:
+	std::unique_ptr<QImage> m_pImage;
 };
 
 class ImageManipulator
@@ -26,33 +41,17 @@ public:
 
 	void SetGraphicsView(QGraphicsView* pGraphicsView);
 
-	void DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap);
+	void CreateNewImage(int widht, int height);
+
+	void ChangeImage(int x, int y, int widht, int heigth, std::vector<std::vector<std::vector<int>>>* pArrPixelMap);
 	
-	void Update() 
-	{
-		for (int i = 0; i < 100; ++i)
-		{
-			for (int j = 0; j < 100; ++j)
-			{
-				QRgb rgb(qRgb(255, 255, 255));
-				QColor color(rgb);
-				m_Image->setPixel(i, j, rgb);
-			}
-		}
-
-	/*	m_pixMap.convertFromImage(*m_Image);
-
-		m_pp->setPixmap(m_pixMap);*/
-
-		m_pGraphicsView->update();
-	}
+	void Update();
 private:
 
 	QGraphicsPixmapItem* m_pp;
 
-	ImageItem m_i;
+	ImageItem m_ImageItem;
 
-	std::unique_ptr<QImage> m_Image;
 	QPixmap m_pixMap;
 
 	std::unique_ptr<QGraphicsScene> m_pScene;

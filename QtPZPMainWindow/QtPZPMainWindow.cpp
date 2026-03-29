@@ -92,6 +92,10 @@ namespace PzpUI
 	
 	void QtPZPMainWindow::DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
 	{
-		m_ImageManipulator.DrawImage(pArrPixelMap);
+		if (!pArrPixelMap)
+			return;
+		
+		m_ImageManipulator.CreateNewImage(pArrPixelMap->size(), pArrPixelMap[0].size());
+		m_ImageManipulator.ChangeImage(0,0, pArrPixelMap->size(), pArrPixelMap[0].size(),  pArrPixelMap);
 	}
 }
