@@ -67,9 +67,15 @@
     <ClCompile Include="ImageManipulator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CastomGraphicsView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtPZPMainWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CastomGraphicsView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -66,6 +66,9 @@
       </widget>
      </item>
      <item>
+      <widget class="CastomGraphicsView" name="m_graphicsView"/>
+     </item>
+     <item>
       <spacer name="verticalSpacer">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -78,9 +81,6 @@
        </property>
       </spacer>
      </item>
-     <item>
-      <widget class="PzpUI::CastomGraphicsView" name="m_graphicsView"/>
-     </item>
     </layout>
    </item>
   </layout>
@@ -88,7 +88,7 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>PzpUI::CastomGraphicsView</class>
+   <class>CastomGraphicsView</class>
    <extends>QGraphicsView</extends>
    <header>CastomGraphicsView.h</header>
   </customwidget>

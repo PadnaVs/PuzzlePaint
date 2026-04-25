@@ -55,13 +55,13 @@ namespace PzpUI
 		}
 			
 		std::vector<std::vector<std::vector<int>>> colorSheme;
-		colorSheme.resize(image.width());
-		for (int i = 0; i < image.width(); ++i)
+		colorSheme.resize(image.height());
+		for (int i = 0; i < image.height(); ++i)
 		{
 			std::vector<std::vector<int>> colorLine; 
-			colorLine.resize(image.height());
+			colorLine.resize(image.width());
 
-			for (int j = 0; j < image.height(); ++j)
+			for (int j = 0; j < image.width(); ++j)
 			{
 				QRgb qColor = image.pixel(i, j);
 				std::vector<int> color { qRed(qColor), qGreen(qColor), qBlue(qColor)};

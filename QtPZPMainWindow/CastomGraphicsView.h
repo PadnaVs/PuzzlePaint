@@ -2,17 +2,15 @@
 #include "..\..\..\sdk\qt\include\QtWidgets\qgraphicsview.h"
 #include "..\..\..\sdk\qt\include\QtGui\qevent.h"
 
-namespace PzpUI
+class CastomGraphicsView :
+    public QGraphicsView
 {
-    class CastomGraphicsView :
-        public QGraphicsView
-    {
-    public:
-        CastomGraphicsView(QWidget* parent = nullptr);
-        CastomGraphicsView(QGraphicsScene* scene, QWidget* parent = nullptr);
+    Q_OBJECT
+public:
+    CastomGraphicsView(QWidget* parent = nullptr);
+    CastomGraphicsView(QGraphicsScene* scene, QWidget* parent = nullptr);
 
-    protected:
+protected:
 
-        void wheelEvent(QWheelEvent* event) override;
-    };
-}
+    void wheelEvent(QWheelEvent* event) override;
+};
