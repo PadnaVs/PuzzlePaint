@@ -55,18 +55,20 @@ namespace PzpUI
 		}
 			
 		std::vector<std::vector<std::vector<int>>> colorSheme;
-
+		colorSheme.resize(image.width());
 		for (int i = 0; i < image.width(); ++i)
 		{
-			std::vector<std::vector<int>> colorLine;
+			std::vector<std::vector<int>> colorLine; 
+			colorLine.resize(image.height());
+
 			for (int j = 0; j < image.height(); ++j)
 			{
 				QRgb qColor = image.pixel(i, j);
 				std::vector<int> color { qRed(qColor), qGreen(qColor), qBlue(qColor)};
-				colorLine.push_back(color);
+				colorLine[j] = std::move(color);
 			}
 
-			colorSheme.push_back(colorLine);
+			colorSheme[i] = std::move(colorLine);
 		}
 
 		QtPZPApplication* pApp = GetPZPQtApplication();

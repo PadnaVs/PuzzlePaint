@@ -41,9 +41,9 @@ public:
 
 	void SetGraphicsView(QGraphicsView* pGraphicsView);
 
-	void CreateNewImage(int widht, int height);
+	void CreateNewImage(int width, int height);
 
-	void ChangeImage(int x, int y, int widht, int heigth, std::vector<std::vector<std::vector<int>>>* pArrPixelMap);
+	void ChangeImage(int x, int y, int width, int height, std::vector<std::vector<std::vector<int>>>* pArrPixelMap);
 	
 	void Update();
 private:
@@ -54,7 +54,7 @@ private:
 
 	QPixmap m_pixMap;
 
-	std::unique_ptr<QGraphicsScene> m_pScene;
+	QGraphicsScene* m_pScene;
 	QGraphicsView* m_pGraphicsView;
 };
 

@@ -2,7 +2,7 @@
 #include <QGraphicsPixmapItem>
 
 ImageManipulator::ImageManipulator(QWidget* parent)
-	: m_pGraphicsView(nullptr), m_pScene(std::make_unique<QGraphicsScene>(parent)), m_pp(nullptr)
+	: m_pGraphicsView(nullptr), m_pScene(nullptr), m_pp(nullptr)
 {
 
 }
@@ -14,23 +14,33 @@ void ImageManipulator::SetGraphicsView(QGraphicsView* pGraphicsView)
 
 	m_pGraphicsView = pGraphicsView;
 
-	m_pGraphicsView->setScene(m_pScene.get());
+	QGraphicsScene* pScene = new QGraphicsScene(m_pGraphicsView);
+	m_pScene = pScene;
+
 	m_pScene->addItem(&m_ImageItem);
+
+	m_pGraphicsView->setScene(pScene);
+	
+	m_pGraphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+	m_pGraphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 
 	m_pGraphicsView->show();
 }
 
-void ImageManipulator::CreateNewImage(int widht, int height)
+void ImageManipulator::CreateNewImage(int width, int height)
 {
 	if (!m_pGraphicsView)
 		return;
 
-	m_ImageItem.SetNewImage(widht, height);
+	m_ImageItem.SetNewImage(width, height);
 
+	m_pScene->setSceneRect(0, 0, width, height);
+
+	m_pGraphicsView->invalidateScene();
 	m_pGraphicsView->update();
 }
 
-void ImageManipulator::ChangeImage(int x, int y, int widht, int heigth, std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
+void ImageManipulator::ChangeImage(int x, int y, int width, int height, std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
 {
 	if (!pArrPixelMap)
 		return;
@@ -38,14 +48,17 @@ void ImageManipulator::ChangeImage(int x, int y, int widht, int heigth, std::vec
 	if (!m_pGraphicsView)
 		return;
 
-	for (int i = x; i < widht; ++i)
+	for (int i = x; i < width; ++i)
 	{
-		for (int j = y; j < heigth; ++j)
+		for (int j = y; j < height; ++j)
 		{
 			m_ImageItem.SetPixel(i, j, qRgb(pArrPixelMap->at(i)[j][0], pArrPixelMap->at(i)[j][1], pArrPixelMap->at(i)[j][2]));
 		}
 	}
 
+	m_pScene->setSceneRect(0, 0, width, height);
+
+	m_pGraphicsView->invalidateScene();
 	m_pGraphicsView->update();
 }
 
@@ -59,6 +72,7 @@ void ImageManipulator::Update()
 		}
 	}
 
+	m_pGraphicsView->invalidateScene();
 	m_pGraphicsView->update();
 }
 
