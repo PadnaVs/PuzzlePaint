@@ -79,13 +79,20 @@
       </spacer>
      </item>
      <item>
-      <widget class="QGraphicsView" name="m_graphicsView"/>
+      <widget class="PzpUI::CastomGraphicsView" name="m_graphicsView"/>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>PzpUI::CastomGraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>CastomGraphicsView.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
