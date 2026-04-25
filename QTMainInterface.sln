@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.11.35327.3
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11716.220 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PuzzlePaintCore", "PuzzlePaintCore\PuzzlePaintCore.vcxproj", "{FBCE10E1-47BA-4C7E-B643-A9D946A849A3}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MediatorDLL", "MediatorDLL\MediatorDLL.vcxproj", "{00A0A88F-9471-4828-B882-3124EB9A9904}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{170873D9-6490-4FCE-9816-697BFCD5458F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PZPObjects", "PZPObjects\PZPObjects.vcxproj", "{4405F5DC-A7E6-4620-A04C-12E899B895AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,14 @@ Global
 		{00A0A88F-9471-4828-B882-3124EB9A9904}.Release|x64.Build.0 = Release|x64
 		{00A0A88F-9471-4828-B882-3124EB9A9904}.Release|x86.ActiveCfg = Release|Win32
 		{00A0A88F-9471-4828-B882-3124EB9A9904}.Release|x86.Build.0 = Release|Win32
+		{4405F5DC-A7E6-4620-A04C-12E899B895AE}.Debug|x64.ActiveCfg = Debug|x64
+		{4405F5DC-A7E6-4620-A04C-12E899B895AE}.Debug|x64.Build.0 = Debug|x64
+		{4405F5DC-A7E6-4620-A04C-12E899B895AE}.Debug|x86.ActiveCfg = Debug|Win32
+		{4405F5DC-A7E6-4620-A04C-12E899B895AE}.Debug|x86.Build.0 = Debug|Win32
+		{4405F5DC-A7E6-4620-A04C-12E899B895AE}.Release|x64.ActiveCfg = Release|x64
+		{4405F5DC-A7E6-4620-A04C-12E899B895AE}.Release|x64.Build.0 = Release|x64
+		{4405F5DC-A7E6-4620-A04C-12E899B895AE}.Release|x86.ActiveCfg = Release|Win32
+		{4405F5DC-A7E6-4620-A04C-12E899B895AE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

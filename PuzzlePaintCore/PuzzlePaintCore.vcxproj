@@ -164,6 +164,9 @@
     <ProjectReference Include="..\MediatorDLL\MediatorDLL.vcxproj">
       <Project>{00a0a88f-9471-4828-b882-3124eb9a9904}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\PZPObjects\PZPObjects.vcxproj">
+      <Project>{4405f5dc-a7e6-4620-a04c-12e899b895ae}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

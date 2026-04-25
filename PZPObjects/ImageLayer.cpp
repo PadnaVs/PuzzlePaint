@@ -1,7 +1,6 @@
-#include "pch.h"
 #include "ImageLayer.h"
 
-namespace PzpCoreApp
+namespace PzpObjects
 {
 	ImageLayer::ImageLayer() 
 	{
@@ -13,7 +12,7 @@ namespace PzpCoreApp
 		m_pImage = std::move(pPixMap);
 	}
 
-	std::vector<std::vector<size_t>>* ImageLayer::GetPixelMap()
+	std::vector<std::vector<Pixel>>* ImageLayer::GetPixelMap()
 	{
 		return m_pImage.get();
 	}
