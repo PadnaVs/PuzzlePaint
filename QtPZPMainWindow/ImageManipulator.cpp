@@ -40,7 +40,7 @@ void ImageManipulator::CreateNewImage(int width, int height)
 	m_pGraphicsView->update();
 }
 
-void ImageManipulator::ChangeImage(int x, int y, int width, int height, std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
+void ImageManipulator::ChangeImage(int x, int y, int height, int width, std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
 {
 	if (!pArrPixelMap)
 		return;
@@ -48,9 +48,9 @@ void ImageManipulator::ChangeImage(int x, int y, int width, int height, std::vec
 	if (!m_pGraphicsView)
 		return;
 
-	for (int i = x; i < width; ++i)
+	for (int i = x; i < height; ++i)
 	{
-		for (int j = y; j < height; ++j)
+		for (int j = y; j < width; ++j)
 		{
 			m_ImageItem.SetPixel(i, j, qRgb(pArrPixelMap->at(i)[j][0], pArrPixelMap->at(i)[j][1], pArrPixelMap->at(i)[j][2]));
 		}

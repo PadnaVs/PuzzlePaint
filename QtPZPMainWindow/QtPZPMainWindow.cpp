@@ -55,13 +55,13 @@ namespace PzpUI
 		}
 			
 		std::vector<std::vector<std::vector<int>>> colorSheme;
-		colorSheme.resize(image.height());
-		for (int i = 0; i < image.height(); ++i)
+		colorSheme.resize(image.width());
+		for (int i = 0; i < image.width(); ++i)
 		{
 			std::vector<std::vector<int>> colorLine; 
-			colorLine.resize(image.width());
+			colorLine.resize(image.height());
 
-			for (int j = 0; j < image.width(); ++j)
+			for (int j = 0; j < image.height(); ++j)
 			{
 				QRgb qColor = image.pixel(i, j);
 				std::vector<int> color { qRed(qColor), qGreen(qColor), qBlue(qColor)};
@@ -97,7 +97,10 @@ namespace PzpUI
 		if (!pArrPixelMap)
 			return;
 		
-		m_ImageManipulator.CreateNewImage(pArrPixelMap->size(), pArrPixelMap[0].size());
-		m_ImageManipulator.ChangeImage(0,0, pArrPixelMap->size(), pArrPixelMap[0].size(),  pArrPixelMap);
+		unsigned int nWidth = pArrPixelMap->size();
+		unsigned int nHeight = pArrPixelMap->at(0).size();
+
+		m_ImageManipulator.CreateNewImage(nWidth, nHeight);
+		m_ImageManipulator.ChangeImage(0,0, nWidth, nHeight,  pArrPixelMap);
 	}
 }
