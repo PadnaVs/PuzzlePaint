@@ -51,8 +51,10 @@ namespace PzpUI
 	template <class I, class T>
 	std::map<std::string, std::unique_ptr<I>> DI<I, T>::singletones;
 
+	void CreateQTApp(int& argc, char** argv, const int& n);
+	void CreateCoreApp();
 
-	QtPZPApplication* GetPZPQtApplication(int& argc, char** argv, int flags);
+	QtPZPApplication* GetPZPQtApplication();
 	PzpCoreApp::IPZPCore* GetPZPCoreApplication();
 }
 
