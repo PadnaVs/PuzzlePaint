@@ -11,7 +11,8 @@ namespace PzpCoreApp
 		PZPCore();
 		~PZPCore();
 
-		void LoadImage(std::unique_ptr<ImageLayer>& pImage, const std::wstring& strName) override;
+		//забирает владение
+		ImageLayer* LoadLayer(std::unique_ptr<ImageLayer>& pImage, const std::wstring& strName) override;
 		
 		ImageLayer* ReadLayer(const std::wstring& strName) override;
 

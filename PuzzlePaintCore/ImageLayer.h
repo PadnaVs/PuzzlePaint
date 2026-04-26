@@ -13,9 +13,32 @@ namespace PzpCoreApp
 
 		//забирает владение
 		void SetPixelMap(ImageInHeap pPixMap);
-
 		std::vector<std::vector<Pixel>>* GetPixelMap();
+
+		void SetWidth(const size_t& w)
+		{
+			m_nWidth = w;
+		}
+
+		size_t GetWidth() 
+		{
+			return m_nWidth;
+		}
+		
+		void SetHeight(const size_t& h)
+		{
+			m_nHeight = h;
+		}
+
+		size_t GetHeight()
+		{
+			return m_nHeight;
+		}
+
 	private:
+		size_t m_nWidth;
+		size_t m_nHeight;
+
 		ImageInHeap m_pImage;
 	};
 }

@@ -10,7 +10,7 @@ namespace PzpCoreApp
 	public:
 		virtual ~IPZPCore() {}
 
-		virtual void LoadImage(std::unique_ptr<ImageLayer>& pImage, const std::wstring& strName) = 0;
+		virtual ImageLayer* LoadLayer(std::unique_ptr<ImageLayer>& pImage, const std::wstring& strName) = 0;
 		virtual ImageLayer* ReadLayer(const std::wstring& strName) = 0;
 	};
 }

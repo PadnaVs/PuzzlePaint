@@ -40,19 +40,24 @@ void ImageManipulator::CreateNewImage(int width, int height)
 	m_pGraphicsView->update();
 }
 
-void ImageManipulator::ChangeImage(int x, int y, int height, int width, std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
+void ImageManipulator::ChangeImage(int x, int y, int height, int width, PzpCoreApp::ImageLayer* pImage)
 {
-	if (!pArrPixelMap)
+	if (!pImage)
 		return;
 
 	if (!m_pGraphicsView)
 		return;
 
+	const std::vector<std::vector<PzpCoreApp::Pixel>>& pixMap = *pImage->GetPixelMap();
+
+
 	for (int i = x; i < height; ++i)
 	{
 		for (int j = y; j < width; ++j)
 		{
-			m_ImageItem.SetPixel(i, j, qRgb(pArrPixelMap->at(i)[j][0], pArrPixelMap->at(i)[j][1], pArrPixelMap->at(i)[j][2]));
+			const PzpCoreApp::Pixel& pix = pixMap[i][j];
+
+			m_ImageItem.SetPixel(i, j, qRgb(pix.m_nR, pix.m_nG, pix.m_nB));
 		}
 	}
 

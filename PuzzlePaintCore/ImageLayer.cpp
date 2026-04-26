@@ -3,7 +3,7 @@
 
 namespace PzpCoreApp
 {
-	ImageLayer::ImageLayer() 
+	ImageLayer::ImageLayer() : m_nWidth(0), m_nHeight(0)
 	{
 	
 	}

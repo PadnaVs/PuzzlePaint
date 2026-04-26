@@ -16,17 +16,17 @@ namespace PzpUI
 		~QtPZPMainWindow();
 
 	signals:
-		void signalOpenFile(std::wstring strFileName);
+		void signalOpenFile(const std::wstring& strFileName);
 
 	private slots:
 		void slotOpenFile();
-		void slotShowImage(std::wstring strFileName);
+		void slotShowImage(const std::wstring& strFileName);
 
 		void slotTest();
 
 	public:
 		std::wstring OpenFile();
-		void DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap);
+		void DrawImage(PzpCoreApp::ImageLayer* pImage);
 		
 		void SetCore(PzpCoreApp::IPZPCore* pCore);
 	private:

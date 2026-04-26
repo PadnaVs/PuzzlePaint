@@ -4,6 +4,8 @@
 #include <QGraphicsItem>
 #include <QRectF>
 
+#include "..\PuzzlePaintCore\ImageLayer.h"
+
 class ImageItem : public QGraphicsItem 
 {
 public:
@@ -43,7 +45,7 @@ public:
 
 	void CreateNewImage(int width, int height);
 
-	void ChangeImage(int x, int y, int width, int height, std::vector<std::vector<std::vector<int>>>* pArrPixelMap);
+	void ChangeImage(int x, int y, int width, int height, PzpCoreApp::ImageLayer* pImage);
 	
 	void Update();
 private:

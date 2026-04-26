@@ -107,6 +107,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="QtPZPMainWindow.cpp" />
     <ClCompile Include="QtPZPApplication.cpp" />
+    <ClCompile Include="Start.cpp" />
+    <ClInclude Include="Start.h" />
     <QtMoc Include="CastomGraphicsView.h" />
     <ClInclude Include="Commands.h" />
     <ClInclude Include="DI.h" />

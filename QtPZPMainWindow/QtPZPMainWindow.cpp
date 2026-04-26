@@ -6,6 +6,7 @@
 #include "qplugin.h"
 #include <QPluginLoader>
 #include <QMessageBox>
+#include "..\PuzzlePaintCore\ImageLayer.h"
 
 namespace PzpUI
 {
@@ -39,7 +40,7 @@ namespace PzpUI
 		m_ImageManipulator.Update();
 	}
 
-	void QtPZPMainWindow::slotShowImage(std::wstring strFilename)
+	void QtPZPMainWindow::slotShowImage(const std::wstring& strFilename)
 	{
 		if(strFilename.empty())
 			return;
@@ -53,33 +54,43 @@ namespace PzpUI
 
 			QMessageBox::warning(this, QString::fromStdWString(strTitle), QString::fromStdWString(strText));
 		}
-			
-		std::vector<std::vector<std::vector<int>>> colorSheme;
-		colorSheme.resize(image.width());
-		for (int i = 0; i < image.width(); ++i)
-		{
-			std::vector<std::vector<int>> colorLine; 
-			colorLine.resize(image.height());
+		
+		PzpCoreApp::ImageInHeap pColorSheme = std::make_unique<std::vector<std::vector<PzpCoreApp::Pixel>>>();
 
-			for (int j = 0; j < image.height(); ++j)
+		size_t nWidth = image.width();
+		size_t nHeight = image.height();
+
+		pColorSheme.get()->resize(nWidth);
+		for (int i = 0; i < nWidth; ++i)
+		{
+			std::vector<PzpCoreApp::Pixel> pixelLine;
+			pixelLine.resize(nHeight);
+
+			for (int j = 0; j < nHeight; ++j)
 			{
 				QRgb qColor = image.pixel(i, j);
-				std::vector<int> color { qRed(qColor), qGreen(qColor), qBlue(qColor)};
-				colorLine[j] = std::move(color);
-			}
+				PzpCoreApp::Pixel pixel;
+				pixel.m_nR = qRed(qColor);
+				pixel.m_nG = qGreen(qColor);
+				pixel.m_nB = qBlue(qColor);
 
-			colorSheme[i] = std::move(colorLine);
+				pixelLine[j] = pixel;
+			};
+
+			try 
+			{
+				pColorSheme->at(i) = std::move(pixelLine);
+			}
+			catch (const std::exception&) {	}
 		}
 
-	/*	QtPZPApplication* pApp = GetPZPQtApplication();
-		if (!pApp)
-			return;
+		std::unique_ptr<PzpCoreApp::ImageLayer> pMainImg = std::make_unique<PzpCoreApp::ImageLayer>();
+		pMainImg->SetPixelMap(std::move(pColorSheme));
+		pMainImg->SetWidth(nWidth);
+		pMainImg->SetHeight(nHeight);
 
-		UIMediatorComponent* pMediator = pApp->GetUIMediator();
-		if (!pMediator)
-			return;*/
-
-	/*	pMediator->LoadImage(colorSheme);*/
+		PzpCoreApp::ImageLayer* pImg = m_pCore->LoadLayer(pMainImg, L"Main");
+		DrawImage(pImg);
 	}
 
 	std::wstring QtPZPMainWindow::OpenFile()
@@ -92,16 +103,16 @@ namespace PzpUI
 		return strRes;
 	}
 	
-	void QtPZPMainWindow::DrawImage(std::vector<std::vector<std::vector<int>>>* pArrPixelMap)
+	void QtPZPMainWindow::DrawImage(PzpCoreApp::ImageLayer* pImage)
 	{
-		if (!pArrPixelMap)
+		if (!pImage)
 			return;
 		
-		unsigned int nWidth = pArrPixelMap->size();
-		unsigned int nHeight = pArrPixelMap->at(0).size();
+		unsigned int nWidth = pImage->GetWidth();
+		unsigned int nHeight = pImage->GetHeight();
 
 		m_ImageManipulator.CreateNewImage(nWidth, nHeight);
-		m_ImageManipulator.ChangeImage(0,0, nWidth, nHeight,  pArrPixelMap);
+		m_ImageManipulator.ChangeImage(0,0, nWidth, nHeight, pImage);
 	}
 
 	void QtPZPMainWindow::SetCore(PzpCoreApp::IPZPCore* pCore)

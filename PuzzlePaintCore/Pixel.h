@@ -9,7 +9,7 @@ namespace PzpCoreApp
 		uint32_t m_nR;
 		uint32_t m_nG;
 		uint32_t m_nB;
-		uint32_t m_nAlpha;
+		//uint32_t m_nAlpha;
 	};
 }
 

@@ -13,13 +13,4 @@ namespace PzpUI
 	{
 		return DI<PzpCoreApp::IPZPCore, PzpCoreApp::PZPCore>::GetConcreteSingleton();
 	}
-
-	void CreateQTApp(int& argc, char** argv, const int& n)
-	{
-		DI<QtPZPApplication, QtPZPApplication>::AddSingleton(argc, argv, n);
-	}
-	void CreateCoreApp()
-	{
-		DI<PzpCoreApp::IPZPCore, PzpCoreApp::PZPCore>::AddSingleton();
-	}
 }
