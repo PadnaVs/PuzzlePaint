@@ -1,13 +1,12 @@
 #pragma once
-#include <vector>
-#include <memory>
-#include "DLLdata.h"
+#include "framework.h"
 #include "Pixel.h"
+#include "DLLHeader.h"
 
-namespace PzpObjects
+namespace PzpCoreApp
 {
-	using ImageInHeap = std::unique_ptr<std::vector<std::vector<Pixel>>>;
-	class PZPObjects_EXPORT ImageLayer
+	using ImageInHeap = PUZZLEPAINTCORE_EXPORTS std::unique_ptr<std::vector<std::vector<Pixel>>>;
+	class PUZZLEPAINTCORE_EXPORTS ImageLayer
 	{
 	public:
 		ImageLayer();

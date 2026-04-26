@@ -1,10 +1,14 @@
 #include "QtPZPApplication.h"
+#include "DI.h"
 #include <iostream>
 
 namespace PzpUI
 {
-	QtPZPApplication::QtPZPApplication(int& argc, char** argv, int flags /*= ApplicationFlags*/) : QApplication(argc, argv, flags)
+	QtPZPApplication::QtPZPApplication(int& argc, char** argv, int flags /*= ApplicationFlags*/) 
+		: QApplication(argc, argv, flags), m_mainWindow(std::make_unique<QtPZPMainWindow>())
 	{
+
+		m_mainWindow->SetCore(nullptr/*PzpUI::GetPZPCoreApplication()*/);
 		//connect(&m_mainWindow, SIGNAL(m_mainWindow.signalPushButton()), this, SLOT(slotPushBut()));
 	}
 
@@ -15,18 +19,7 @@ namespace PzpUI
 
 	void QtPZPApplication::ShowWindow()
 	{
-		m_mainWindow.show();
-	}
-
-
-	UIMediatorComponent* QtPZPApplication::GetUIMediator()
-	{
-		return &m_uiMediator;
-	}
-
-	PzpUI::QtPZPMainWindow& QtPZPApplication::GetPZPMainWindow()
-	{
-		return m_mainWindow;
+		m_mainWindow->show();
 	}
 
 	void QtPZPApplication::slotPushBut()

@@ -4,4 +4,7 @@
 // Файлы заголовков Windows
 #include <windows.h>
 #include <string>
+#include <vector>
+#include <map>
+#include <memory>
 

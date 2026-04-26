@@ -7,7 +7,7 @@
 class ImageItem : public QGraphicsItem 
 {
 public:
-	ImageItem();
+	ImageItem(QGraphicsItem* parent = nullptr);
 
 	~ImageItem();
 

@@ -1,10 +1,8 @@
 #pragma once
+#include "framework.h"
 #include <QApplication>
 #include <QWidget>
-#include "DI.h"
-#include "qtpzpmainwindow_global.h"
 #include "QtPZPMainWindow.h"
-#include "UIMediatorComponent.h"
 
 namespace PzpUI
 {
@@ -14,20 +12,16 @@ namespace PzpUI
 		template<class I, class T>
 		friend class DI;
 	public:
-		QtPZPApplication(int& argc, char** argv, int flags = ApplicationFlags);;
+		QtPZPApplication(int& argc, char** argv, int flags = ApplicationFlags);
 		virtual ~QtPZPApplication();
 
 		void ShowWindow();
-		UIMediatorComponent* GetUIMediator();
-		
-		QtPZPMainWindow& GetPZPMainWindow();
 
 	private slots:
 		void slotPushBut();
 
 	private:
-		QtPZPMainWindow m_mainWindow;
-		UIMediatorComponent m_uiMediator;
+		std::unique_ptr<QtPZPMainWindow> m_mainWindow;
 	};
 }
 

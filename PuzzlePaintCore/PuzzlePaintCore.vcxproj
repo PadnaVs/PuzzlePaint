@@ -140,33 +140,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Consts.h" />
-    <ClInclude Include="CoreMediatorComponent.h" />
-    <ClInclude Include="DI.h" />
+    <ClInclude Include="DLLHeader.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="ImageLayer.h" />
+    <ClInclude Include="IPZPCore.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Pixel.h" />
     <ClInclude Include="PZPCore.h" />
-    <ClInclude Include="Start.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CoreMediatorComponent.cpp" />
-    <ClCompile Include="DI.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="ImageLayer.cpp" />
+    <ClCompile Include="IPZPCore.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Pixel.cpp" />
     <ClCompile Include="PZPCore.cpp" />
-    <ClCompile Include="Start.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MediatorDLL\MediatorDLL.vcxproj">
-      <Project>{00a0a88f-9471-4828-b882-3124eb9a9904}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\PZPObjects\PZPObjects.vcxproj">
-      <Project>{4405f5dc-a7e6-4620-a04c-12e899b895ae}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

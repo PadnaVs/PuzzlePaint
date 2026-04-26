@@ -86,7 +86,7 @@ void ImageItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidge
 	painter->drawImage(0, 0, *m_pImage);
 }
 
-ImageItem::ImageItem() : m_pImage(std::make_unique<QImage>())
+ImageItem::ImageItem(QGraphicsItem* parent /*= nullptr*/) : QGraphicsItem(parent), m_pImage(std::make_unique<QImage>())
 {
 
 }

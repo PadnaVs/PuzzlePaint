@@ -1,29 +1,21 @@
 #pragma once
-#include "DI.h"
-#include "CoreMediatorComponent.h"
-#include <vector>
+#include "framework.h"
+#include "IPZPCore.h"
 
 namespace PzpCoreApp
 {
-	class PZPCore
+	class PUZZLEPAINTCORE_EXPORTS PZPCore : public IPZPCore
 	{
-		template <class I, class T>
-		friend class DI;
 
 	public:
 		PZPCore();
 		~PZPCore();
 
-		void LoadImage(std::vector<std::vector<std::vector<int>>>* arrPixelMap);
+		void LoadImage(std::unique_ptr<ImageLayer>& pImage, const std::wstring& strName) override;
 		
-		std::vector<std::vector<std::vector<int>>>* ReadImage() 
-		{
-			return &m_pixelMapOgirn;
-		}
-
-		CoreMediatorComponent m_coreMediator;
+		ImageLayer* ReadLayer(const std::wstring& strName) override;
 
 	private:
-		std::vector<std::vector<std::vector<int>>> m_pixelMapOgirn;
+		std::unique_ptr<std::map<std::wstring, std::unique_ptr<ImageLayer>>> m_arrLayer;
 	};
 }

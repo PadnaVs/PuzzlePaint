@@ -1,11 +1,11 @@
-﻿#include "QtPZPMainWindow.h"
+﻿#include "framework.h"
+#include "QtPZPMainWindow.h"
 #include "QtPZPApplication.h"
 #include "Commands.h"
 #include "QImage.h"
 #include "qplugin.h"
 #include <QPluginLoader>
 #include <QMessageBox>
-#include <memory>
 
 namespace PzpUI
 {
@@ -71,15 +71,15 @@ namespace PzpUI
 			colorSheme[i] = std::move(colorLine);
 		}
 
-		QtPZPApplication* pApp = GetPZPQtApplication();
+	/*	QtPZPApplication* pApp = GetPZPQtApplication();
 		if (!pApp)
 			return;
 
 		UIMediatorComponent* pMediator = pApp->GetUIMediator();
 		if (!pMediator)
-			return;
+			return;*/
 
-		pMediator->LoadImage(colorSheme);
+	/*	pMediator->LoadImage(colorSheme);*/
 	}
 
 	std::wstring QtPZPMainWindow::OpenFile()
@@ -102,5 +102,10 @@ namespace PzpUI
 
 		m_ImageManipulator.CreateNewImage(nWidth, nHeight);
 		m_ImageManipulator.ChangeImage(0,0, nWidth, nHeight,  pArrPixelMap);
+	}
+
+	void QtPZPMainWindow::SetCore(PzpCoreApp::IPZPCore* pCore)
+	{
+		m_pCore = pCore;
 	}
 }

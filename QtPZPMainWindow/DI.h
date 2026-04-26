@@ -1,15 +1,17 @@
 #pragma once
-#include <memory>
-#include <string>
-#include <map>
-#include "qtpzpmainwindow_global.h"
+
+#include "DLLHeader.h"
+#include "framework.h"
+#include "..\PuzzlePaintCore\IPZPCore.h"
+#include "QtPZPApplication.h"
 
 namespace PzpUI 
 {
 	class QtPZPApplication;
+	class PzpCoreApp::IPZPCore;
 
 	template<class I, class T>
-	class QTDLL_EXPORT DI {
+	class DI {
 	public:
 		template<typename ...Args>
 		static void AddSingleton(Args&... args) {
@@ -50,7 +52,8 @@ namespace PzpUI
 	std::map<std::string, std::unique_ptr<I>> DI<I, T>::singletones;
 
 
-	QTDLL_EXPORT QtPZPApplication* GetPZPQtApplication();
+	QtPZPApplication* GetPZPQtApplication(int& argc, char** argv, int flags);
+	PzpCoreApp::IPZPCore* GetPZPCoreApplication();
 }
 
 

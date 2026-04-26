@@ -23,19 +23,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="qtpzpmainwindow_global.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Start.h">
+    <ClInclude Include="DLLHeader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="QtPZPApplication.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UIMediatorComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Commands.h">
@@ -44,21 +35,18 @@
     <ClInclude Include="ImageManipulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Start.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="QtPZPApplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="QtPZPMainWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UIMediatorComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Commands.cpp">
@@ -68,6 +56,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CastomGraphicsView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

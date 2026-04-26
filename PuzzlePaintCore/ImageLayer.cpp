@@ -1,6 +1,7 @@
+#include "pch.h"
 #include "ImageLayer.h"
 
-namespace PzpObjects
+namespace PzpCoreApp
 {
 	ImageLayer::ImageLayer() 
 	{
