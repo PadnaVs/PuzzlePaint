@@ -11,7 +11,7 @@
 namespace PzpUI
 {
 	QtPZPMainWindow::QtPZPMainWindow(QWidget* parent)
-		: QWidget(parent), m_pButOpenFile(nullptr), m_ImageManipulator(this)
+		: QWidget(parent), m_pButOpenFile(nullptr), m_ImageManipulator(this), m_pCore(nullptr)
 	{
 		ui.setupUi(this);
 
